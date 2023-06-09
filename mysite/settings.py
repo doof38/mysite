@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os.path
 from pathlib import Path
 from decouple import config
 
@@ -86,7 +87,8 @@ TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
     "default": config(
-        "DATABASE_URL", default="sqlite:///" + BASE_DIR.child("db.sqlite3"), cast=db_url
+        "DATABASE_URL",
+        default="sqlite:///" + str(BASE_DIR) + "/db.sqlite3",
     )
 }
 
@@ -137,6 +139,6 @@ if not DEBUG:
 
 ALLOWED_HOSTS = []
 
-RENDER_EXTERNAL_HOSTNAME = config("RENDER_EXTERNAL_HOSTNAME")
+RENDER_EXTERNAL_HOSTNAME = config("RENDER_EXTERNAL_HOSTNAME", default="localhost")
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
