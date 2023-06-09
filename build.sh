@@ -4,7 +4,7 @@
 # exit on error
 set -o errexit
 
-pip install git+https://git.disroot.org/pranav/django-todo{,api} gunicorn
+pip install git+https://git.disroot.org/pranav/django-todoapi git+https://git.disroot.org/pranav/django-todo gunicorn
 
 python manage.py collectstatic --no-input
 python manage.py migrate
