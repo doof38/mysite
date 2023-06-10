@@ -82,7 +82,6 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DEBUG = config("DEBUG", default=False, cast=bool)
 TEMPLATE_DEBUG = DEBUG
 
 DATABASES = {
@@ -137,8 +136,8 @@ if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
-RENDER_EXTERNAL_HOSTNAME = config("RENDER_EXTERNAL_HOSTNAME", default="localhost")
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+# RENDER_EXTERNAL_HOSTNAME = config("RENDER_EXTERNAL_HOSTNAME", default=False)
+# if RENDER_EXTERNAL_HOSTNAME:
+#    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
