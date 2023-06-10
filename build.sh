@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/bash
 
 #!/usr/bin/env bash
 # exit on error
@@ -14,6 +14,16 @@ cd newsite/newsite
 cat settings.py
 echo 'INSTALLED_APPS+=["todo","todoapi"]' >>settings.py
 echo 'ALLOWED_HOSTS+=["mulearn-internship.onrender.com"]' >>settings.py
+cat > urls.py <<<"EOF"
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("todo/", include("todo.urls")),
+    path("todoapi/", include("todoapi.urls")),
+]
+EOF
 cd ..
 
 #python manage.py collectstatic --no-input
