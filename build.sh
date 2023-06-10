@@ -15,5 +15,5 @@ cat settings.py
 echo 'INSTALLED_APPS+=["todo","todoapi"]' >>settings.py
 cd ..
 
-python manage.py collectstatic --no-input
+#python manage.py collectstatic --no-input
 python manage.py migrate
