@@ -87,7 +87,10 @@ TEMPLATE_DEBUG = DEBUG
 DATABASES = {
     "default": config(
         "DATABASE_URL",
-        default="sqlite:///" + str(BASE_DIR) + "/db.sqlite3",
+        default={
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": "sqlite:///" + str(BASE_DIR) + "/db.sqlite3",
+        },
     )
 }
 
