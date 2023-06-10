@@ -12,7 +12,7 @@ pip install git+https://git.disroot.org/pranav/django-todoapi git+https://git.di
 django-admin startproject newsite
 cd newsite/newsite
 cat settings.py
-echo 'INSTALLED_APPS+=["todo","todoapi]' >>settings.py
+echo 'INSTALLED_APPS+=["todo","todoapi"]' >>settings.py
 cd ..
 
 python manage.py collectstatic --no-input
