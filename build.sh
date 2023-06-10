@@ -12,7 +12,7 @@ cd newsite/newsite
 cat settings.py
 echo 'INSTALLED_APPS+=["todo","todoapi"]' >>settings.py
 echo 'ALLOWED_HOSTS+=["mulearn-internship.onrender.com"]' >>settings.py
-cat > urls.py <<<"EOF"
+cat >urls.py <<"EOF"
 from django.contrib import admin
 from django.urls import path, include
 
